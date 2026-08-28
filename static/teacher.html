@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lekha · Edge console</title>
+  <link rel="stylesheet" href="/static/css/app.css" />
+</head>
+<body>
+  <div class="grain"></div>
+  <div class="app">
+    <header class="topbar">
+      <a class="brand" href="/" style="text-decoration:none;color:inherit">
+        <h1>Lekha</h1>
+      </a>
+      <span class="pill" id="modePill">IDLE</span>
+      <span class="pill ok" id="lanPill">LAN · no internet required</span>
+      <div class="spacer"></div>
+      <div class="top-actions">
+        <button class="btn" id="btnDemo">Run demo lecture</button>
+        <button class="btn ghost" id="btnLive">Live mic</button>
+        <button class="btn ghost" id="btnStop">Reset</button>
+      </div>
+    </header>
+    <div class="teacher-grid">
+      <aside class="col">
+        <h3>Pipeline</h3>
+        <div class="vad" id="vad" aria-hidden="true"></div>
+        <div class="node-list">
+          <div class="node" id="nMic"><span>Microphone</span><span class="st" id="sMic">idle</span></div>
+          <div class="node" id="nVad"><span>VAD · Silero</span><span class="st" id="sVad">idle</span></div>
+          <div class="node" id="nAsr"><span>ASR · Whisper tiny</span><span class="st" id="sAsr">idle</span></div>
+          <div class="node" id="nA"><span>Job A · captions</span><span class="st" id="sA">idle</span></div>
+          <div class="node" id="nB"><span>Job B · notes</span><span class="st" id="sB">idle</span></div>
+          <div class="node" id="nC"><span>Job C · MT (subscribed)</span><span class="st" id="sC">idle</span></div>
+        </div>
+        <div class="stat-grid">
+          <div class="stat"><small>Text sent</small><b id="bytes">0 B</b></div>
+          <div class="stat"><small>If we had streamed audio</small><b id="audioWould">0 B</b></div>
+          <div class="stat"><small>Packets</small><b id="pkts">0</b></div>
+          <div class="stat"><small>Saved</small><b class="saved" id="saved">—</b></div>
+        </div>
+        <div class="bw-bar"><span id="bwFill"></span></div>
+        <p class="hint">Fill is caption traffic vs. 16 kbps voice. Tiny bar = the whole point.</p>
+      </aside>
+      <main class="col">
+        <h3>Transcript buffer</h3>
+        <div class="asr-stage">
+          <div class="label">Latest phrase · Job A <span id="micHint" style="color:var(--muted);letter-spacing:0.08em"></span></div>
+          <div class="asr-line" id="asrLine"><span class="partial">Waiting for speech…</span></div>
+          <form id="typeForm" style="display:flex;gap:8px;margin-top:12px" autocomplete="off">
+            <input id="typeLine" placeholder="Allow mic, speak English — or type a line and press Enter"
+              style="flex:1;background:#0a0c10;border:1px solid rgba(226,184,106,.25);color:#f7ecd4;padding:8px 10px;font-size:13px" />
+            <button class="btn ghost" type="submit">Send</button>
+          </form>
+        </div>
+        <h3>Wire log · JSON packets</h3>
+        <div class="packet-log" id="log"></div>
+        <div class="jobs-row">
+          <div>
+            <h3>Job B · notes</h3>
+            <div class="paper" id="paper">
+              <p class="empty">Notes appear every ~60–90s of speech (compressed in the demo).</p>
+            </div>
+          </div>
+          <div>
+            <h3>Job C · fan-out</h3>
+            <div class="mt-box" id="mtBox">
+              <div class="lang" id="mtLang">NO SUBSCRIBERS YET</div>
+              <div id="mtText" class="empty">Translation runs only for languages a connected student asked for.</div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <aside class="col">
+        <h3>Students on this hotspot</h3>
+        <div class="roster" id="roster">
+          <p class="empty">Open /student on a phone or a second window. Subscribe-based MT lights up when they pick a language.</p>
+        </div>
+        <h3 style="margin-top:22px">Hearing-impaired QoS</h3>
+        <p class="hint">Those devices are sorted first on the fan-out (simulated MQTT QoS 2). Non-speech events — bell, laughter — fire a visual + haptic alert.</p>
+        <div id="alertMini" class="empty" style="margin-top:10px"></div>
+        <h3 style="margin-top:22px">Export</h3>
+        <a class="btn ghost" href="/api/export.md" download="lekha-notes.md">Download notes.md</a>
+        <p class="hint" style="margin-top:10px">End-of-day LMS sync would be this file, a few KB, deferred until any uplink exists.</p>
+      </aside>
+    </div>
+  </div>
+  <script src="/static/js/shared.js"></script>
+  <script src="/static/js/teacher.js"></script>
+</body>
+</html>

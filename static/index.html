@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lekha — captions that cost bytes</title>
+  <link rel="stylesheet" href="/static/css/app.css" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#0b0d12" />
+</head>
+<body>
+  <div class="grain"></div>
+  <div class="hero-wrap">
+    <section class="hero-left">
+      <div class="brand">
+        <svg class="brand-mark" viewBox="0 0 36 36" aria-hidden="true">
+          <rect x="1" y="1" width="34" height="34" fill="none" stroke="#e2b86a" stroke-width="1.4"/>
+          <path d="M6 24 Q10 10 16 18 T26 12" fill="none" stroke="#4ad4b0" stroke-width="1.6"/>
+          <text x="8" y="30" fill="#e2b86a" font-size="8" font-family="Georgia">अ</text>
+        </svg>
+        <h1>Lekha</h1>
+        <span class="deva">लेखा</span>
+      </div>
+      <div class="kicker">Low-bandwidth classroom edge · hackathon prototype</div>
+      <h2>Turn the lecture into <em>text at the source</em>.</h2>
+      <p class="lede">
+        A full sentence is ~20 bytes. A second of audio is 100× that.
+        Lekha runs ASR, notes, and translation on one classroom device
+        and streams only captions to student phones — over local Wi-Fi,
+        even when the tower is on 2G.
+      </p>
+      <div class="cta-row">
+        <a class="btn" href="/teacher">Open edge console →</a>
+        <a class="btn ghost" href="/student">Join as student</a>
+      </div>
+      <div class="metrics">
+        <div>
+          <small>Caption packet</small>
+          <strong>30–80 B</strong>
+          <span>JSON over WebSocket</span>
+        </div>
+        <div>
+          <small>Vs. 1s audio</small>
+          <strong>~100×</strong>
+          <span>smaller on the wire</span>
+        </div>
+        <div>
+          <small>Internet in class</small>
+          <strong>0</strong>
+          <span>LAN hotspot only</span>
+        </div>
+      </div>
+    </section>
+    <aside class="hero-right">
+      <div class="arch">
+        <div class="arch-title">Classroom edge device — all heavy AI stays here</div>
+        <div class="edge-box">
+          <header>Mic → VAD → local ASR → text buffer</header>
+          <div class="pipe">
+            <span class="chip">USB mic</span><span class="arrow">→</span>
+            <span class="chip">Silero VAD</span><span class="arrow">→</span>
+            <span class="chip">Whisper.cpp</span><span class="arrow">→</span>
+            <span class="chip on">text</span>
+          </div>
+          <div class="jobs">
+            <div class="job"><b>Job A · &lt;2s</b><p>Live captions, 30–80 byte packets, QoS-priority for deaf students.</p></div>
+            <div class="job"><b>Job B · 60–90s</b><p>Rolling simplified notes + glossary from a small local LLM.</p></div>
+            <div class="job"><b>Job C · batched</b><p>Translate only languages someone in the room subscribed to.</p></div>
+          </div>
+        </div>
+        <div class="wire">▼ compressed text only · WebSocket / MQTT · campus LAN ▼</div>
+        <div class="phones">
+          <div class="phone"><div class="who">Priya · हिन्दी</div><div class="meta">Captions + notes</div></div>
+          <div class="phone"><div class="who">Arjun · English</div><div class="meta">Thin-client PWA</div></div>
+          <div class="phone"><div class="who">Maya · a11y</div><div class="meta">Priority + haptic</div></div>
+        </div>
+      </div>
+      <ul class="principles">
+        <li>Never send raw audio/video over a constrained network.</li>
+        <li>Student phones cache everything (IndexedDB) — a drop degrades to the last line, not to silence.</li>
+        <li>End-of-day LMS sync is optional and can wait for a night-time burst.</li>
+      </ul>
+      <p class="fine" style="margin-top:16px;color:#5c6578;font-size:12px;line-height:1.5">
+        Prototype note: demo lecture is scripted with on-device-style jobs.
+        Live mic uses the browser Web Speech API as a stand-in for Whisper.cpp.
+        Open the edge console in one window and a student in another.
+      </p>
+    </aside>
+  </div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lekha · Class feed</title>
+  <link rel="stylesheet" href="/static/css/app.css" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#0b0d12" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+</head>
+<body>
+  <div class="grain"></div>
+  <div class="offline-banner">LAN blip — showing cached captions. Nothing is lost.</div>
+  <div class="toast" id="toast"></div>
+
+  <div id="gate" class="gate">
+    <div class="kicker">Lekha · student PWA</div>
+    <h2>Join this classroom</h2>
+    <p>No app install. Works on the teacher’s hotspot with the internet off.</p>
+    <div class="field">
+      <label for="name">Your name</label>
+      <input id="name" maxlength="24" placeholder="Priya" />
+    </div>
+    <div class="field">
+      <label for="lang">Caption language</label>
+      <select id="lang">
+        <option value="en">English</option>
+        <option value="hi">हिन्दी — Hindi</option>
+        <option value="ta">தமிழ் — Tamil</option>
+        <option value="bn">বাংলা — Bengali</option>
+        <option value="es">Español — Spanish</option>
+      </select>
+    </div>
+    <label class="check"><input type="checkbox" id="hearing" /> I am deaf or hard of hearing — priority captions, bigger type, haptic alerts</label>
+    <label class="check"><input type="checkbox" id="contrast" /> High contrast</label>
+    <button class="btn" id="join" style="margin-top:12px;width:100%;justify-content:center">Enter class</button>
+  </div>
+
+  <div class="app" id="app" hidden>
+    <header class="topbar">
+      <a class="brand" href="/" style="color:inherit"><h1>Lekha</h1></a>
+      <span class="pill ok" id="conn">connecting</span>
+      <span class="pill" id="rate">0 B/s</span>
+      <div class="spacer"></div>
+      <select id="langLive" style="background:#0a0c10;color:#f7ecd4;border:1px solid rgba(226,184,106,.3);padding:6px 8px">
+        <option value="en">EN</option>
+        <option value="hi">HI</option>
+        <option value="ta">TA</option>
+        <option value="bn">BN</option>
+        <option value="es">ES</option>
+      </select>
+      <button class="btn ghost" id="btnBig" type="button">A+</button>
+      <button class="btn ghost" id="btnHc" type="button">Contrast</button>
+    </header>
+    <div class="student-shell">
+      <nav class="tabs">
+        <button class="tab on" data-tab="live">Live</button>
+        <button class="tab" data-tab="notes">Notes</button>
+        <button class="tab" data-tab="gloss">Glossary</button>
+      </nav>
+      <div class="panel" id="panelLive">
+        <div class="cap-list" id="caps"></div>
+      </div>
+      <div class="panel" id="panelNotes" hidden></div>
+      <div class="panel" id="panelGloss" hidden>
+        <div class="gloss" id="gloss"></div>
+      </div>
+      <div class="cinema">
+        <div class="bar" id="cinema"><small>Live caption</small>Waiting for the lecture to start…</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/js/shared.js"></script>
+  <script src="/static/js/student.js"></script>
+</body>
+</html>

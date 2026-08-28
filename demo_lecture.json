@@ -1,0 +1,287 @@
+{
+  "title": "Bits, Bandwidth, and Why Text Wins",
+  "subject": "Computer Networks · Lecture 01",
+  "teacher": "Dr. Mehta",
+  "durationSec": 95,
+  "languages": ["en", "hi", "ta", "bn", "es"],
+  "events": [
+    {
+      "at": 0.6,
+      "type": "caption",
+      "spk": "Teacher",
+      "en": "Good morning class. Phones down, minds open.",
+      "hi": "सुप्रभात कक्षा। फ़ोन नीचे, दिमाग खुला।",
+      "ta": "காலை வணக்கம் வகுப்பே. போனை கீழே வையுங்கள்.",
+      "bn": "শুভ সকাল ক্লাস। ফোন নিচে, মন খোলা।",
+      "es": "Buenos días clase. Teléfonos abajo, mentes abiertas."
+    },
+    {
+      "at": 4.2,
+      "type": "caption",
+      "spk": "Teacher",
+      "en": "Today we study one idea that will follow you for the rest of this course.",
+      "hi": "आज हम एक विचार पढ़ेंगे जो इस कोर्स तक आपके साथ रहेगा।",
+      "ta": "இன்று ஒரு கருத்தை படிப்போம் — இது பாடம் முழுவதும் உடன் வரும்.",
+      "bn": "আজ আমরা একটি ধারণা পড়ব যা এই কোর্স জুড়ে আপনার সাথে থাকবে।",
+      "es": "Hoy estudiaremos una idea que los acompañará todo el curso."
+    },
+    {
+      "at": 8.8,
+      "type": "caption",
+      "spk": "Teacher",
+      "en": "Text is cheap. Audio is expensive. Video is a luxury.",
+      "hi": "टेक्स्ट सस्ता है। ऑडियो महंगा है। वीडियो एक विलासिता है।",
+      "ta": "உரை மலிவு. ஒலி விலை உயர்ந்தது. வீடியோ ஒரு சொகுசு.",
+      "bn": "টেক্সট সস্তা। অডিও ব্যয়বহুল। ভিডিও একটি বিলাসিতা।",
+      "es": "El texto es barato. El audio es caro. El video es un lujo."
+    },
+    {
+      "at": 13.0,
+      "type": "glossary",
+      "term": "bandwidth",
+      "def": "How much data a network can carry per second, usually measured in kilobits per second (kbps)."
+    },
+    {
+      "at": 13.4,
+      "type": "caption",
+      "spk": "Teacher",
+      "en": "A full English sentence is about twenty bytes once compressed.",
+      "hi": "एक पूरी अंग्रेज़ी वाक्य संपीड़ित होने पर लगभग बीस बाइट्स का होता है।",
+      "ta": "ஒரு முழு ஆங்கில வாக்கியம் சுருக்கப்பட்டால் சுமார் இருபது பைட்டுகள்.",
+      "bn": "একটি পূর্ণ ইংরেজি বাক্য সংকুচিত হলে প্রায় বিশ বাইট।",
+      "es": "Una frase completa en inglés son unos veinte bytes comprimidos."
+    },
+    {
+      "at": 18.0,
+      "type": "caption",
+      "spk": "Teacher",
+      "en": "One second of low-quality audio is one to two kilobytes. That is a hundred times more.",
+      "hi": "कम गुणवत्ता वाले ऑडियो का एक सेकंड एक से दो किलोबाइट है। यह सौ गुना ज़्यादा है।",
+      "ta": "குறைந்த தர ஒலியின் ஒரு நொடி ஒன்று முதல் இரண்டு கிலோபைட்டுகள். நூறு மடங்கு அதிகம்.",
+      "bn": "কম মানের অডিওর এক সেকেন্ড এক থেকে দুই কিলোবাইট। এটা শতগুণ বেশি।",
+      "es": "Un segundo de audio de baja calidad son uno o dos kilobytes. Cien veces más."
+    },
+    {
+      "at": 23.2,
+      "type": "caption",
+      "spk": "Teacher",
+      "en": "So if your village tower is running on EDGE — that is two G — you cannot stream a lecture. You can stream captions.",
+      "hi": "अगर आपके गाँव का टावर EDGE यानी टू-जी पर है, तो लेक्चर स्ट्रीम नहीं कर सकते। कैप्शन स्ट्रीम कर सकते हैं।",
+      "ta": "உங்கள் ஊர் টাவர் EDGE அதாவது 2G இல் இருந்தால் பாடம் ஸ்ட்ரீம் ஆகாது. தலைப்புகள் ஸ்ட்ரீம் ஆகும்.",
+      "bn": "যদি আপনার গ্রামের টাওয়ার EDGE অর্থাৎ টু-জি তে চলে, লেকচার স্ট্রিম হবে না। ক্যাপশন স্ট্রিম হবে।",
+      "es": "Si la torre del pueblo corre en EDGE — dos G — no puedes transmitir la clase. Sí puedes transmitir subtítulos."
+    },
+    {
+      "at": 28.0,
+      "type": "glossary",
+      "term": "EDGE / 2G",
+      "def": "An older mobile data standard. Typical real-world speed is 10–50 kilobits per second, with high latency and frequent drops."
+    },
+    {
+      "at": 29.0,
+      "type": "note",
+      "title": "The core constraint",
+      "bullets": [
+        "Text ≈ 10–20 bytes per sentence; 1s of audio ≈ 1–2 KB; video is 10–100× audio.",
+        "On 2G/EDGE (~10–50 kbps), streaming lecture audio fails; streaming captions does not.",
+        "Design rule: convert speech to text as close to the source as possible."
+      ],
+      "simple": "Remember: words are tiny. Sound is heavy. Pictures are heaviest. Send words first."
+    },
+    {
+      "at": 31.0,
+      "type": "caption",
+      "spk": "Teacher",
+      "en": "This is why we put the microphone next to a small computer in the classroom — the edge device.",
+      "hi": "इसीलिए हम माइक्रोफ़ोन को कक्षा के छोटे कंप्यूटर — एज डिवाइस — के पास रखते हैं।",
+      "ta": "அதனால்தான் மைக்ரோஃபோனை வகுப்பில் உள்ள சிறிய கணினி அருகில் வைக்கிறோம் — எட்ஜ் சாதனம்.",
+      "bn": "এই জন্যই মাইক্রোফোন রাখি ক্লাসরুমের ছোট কম্পিউটারের কাছে — এজ ডিভাইস।",
+      "es": "Por eso el micrófono vive junto a una computadora pequeña en el aula: el dispositivo de borde."
+    },
+    {
+      "at": 36.2,
+      "type": "caption",
+      "spk": "Teacher",
+      "en": "That machine listens, transcribes, and only then talks to your phones — in text.",
+      "hi": "वह मशीन सुनती है, लिखती है, और उसके बाद ही आपके फ़ोन से बात करती है — टेक्स्ट में।",
+      "ta": "அந்த இயந்திரம் கேட்கும், எழுதும், பிறகுதான் உங்கள் போனுடன் பேசும் — உரையாக.",
+      "bn": "সেই মেশিন শোনে, লেখে, তারপরই আপনার ফোনের সাথে কথা বলে — টেক্সটে।",
+      "es": "Esa máquina escucha, transcribe, y recién ahí habla con sus teléfonos — en texto."
+    },
+    {
+      "at": 41.0,
+      "type": "glossary",
+      "term": "edge device",
+      "def": "The classroom computer (laptop, Raspberry Pi, or phone) that runs ASR, notes, and translation locally so audio never leaves the room."
+    },
+    {
+      "at": 41.5,
+      "type": "caption",
+      "spk": "Student",
+      "en": "Ma'am, does that mean we do not need the internet during class?",
+      "hi": "मैडम, क्या इसका मतलब है कि क्लास के दौरान इंटरनेट की ज़रूरत नहीं?",
+      "ta": "மேடம், வகுப்பின் போது இணையம் தேவையில்லையா?",
+      "bn": "ম্যাডাম, তার মানে ক্লাসের সময় ইন্টারনেট লাগবে না?",
+      "es": "Profe, ¿eso significa que no hace falta internet durante la clase?"
+    },
+    {
+      "at": 45.8,
+      "type": "caption",
+      "spk": "Teacher",
+      "en": "Exactly. The hotspot is local. Your phone talks only to this laptop, not to a server in Mumbai or Virginia.",
+      "hi": "बिल्कुल। हॉटस्पॉट लोकल है। आपका फ़ोन सिर्फ़ इस लैपटॉप से बात करता है, मुंबई या वर्जीनिया के सर्वर से नहीं।",
+      "ta": "சரியே. ஹாட்ஸ்பாட் உள்ளூர். உங்கள் போன் இந்த லேப்டாப்புடன் மட்டுமே பேசும்.",
+      "bn": "একদম। হটস্পট লোকাল। আপনার ফোন শুধু এই ল্যাপটপের সাথে কথা বলে।",
+      "es": "Exacto. El hotspot es local. El teléfono habla solo con esta laptop, no con un servidor lejano."
+    },
+    {
+      "at": 51.0,
+      "type": "alert",
+      "kind": "laughter",
+      "label": "Laughter in the room",
+      "en": "The class laughs."
+    },
+    {
+      "at": 52.4,
+      "type": "caption",
+      "spk": "Teacher",
+      "en": "Virginia is not joining this lecture. Good.",
+      "hi": "वर्जीनिया इस लेक्चर में शामिल नहीं हो रहा। ठीक है।",
+      "ta": "வர்ஜீனியா இந்த வகுப்பில் இல்லை. நல்லது.",
+      "bn": "ভার্জিনিয়া এই লেকচারে যোগ দিচ্ছে না। ভালো।",
+      "es": "Virginia no se está uniendo a esta clase. Bien."
+    },
+    {
+      "at": 56.0,
+      "type": "caption",
+      "spk": "Teacher",
+      "en": "Three jobs run on the transcript at once. Job A: live captions, under two seconds late.",
+      "hi": "ट्रांस्क्रिप्ट पर एक साथ तीन काम चलते हैं। जॉब ए: लाइव कैप्शन, दो सेकंड से कम देरी।",
+      "ta": "ஒரே நேரத்தில் மூன்று பணிகள். பணி A: நேரடி தலைப்புகள், இரண்டு நொடிக்குள்.",
+      "bn": "ট্রান্সক্রিপ্টে একসাথে তিনটি কাজ। জব এ: লাইভ ক্যাপশন, দুই সেকেন্ডের কম দেরি।",
+      "es": "Tres trabajos corren a la vez. Trabajo A: subtítulos en vivo, menos de dos segundos de retraso."
+    },
+    {
+      "at": 61.5,
+      "type": "caption",
+      "spk": "Teacher",
+      "en": "Job B: every minute or so, a small language model writes simplified notes and a glossary.",
+      "hi": "जॉब बी: हर मिनट एक छोटा भाषा मॉडल सरल नोट्स और शब्दावली लिखता है।",
+      "ta": "பணி B: ஒவ்வொரு நிமிடமும் ஒரு சிறிய மொழி மாதிரி எளிய குறிப்புகள் எழுதும்.",
+      "bn": "জব বি: প্রতি মিনিটে একটি ছোট ভাষা মডেল সরল নোট ও শব্দকোষ লেখে।",
+      "es": "Trabajo B: cada minuto, un modelo pequeño escribe apuntes simples y un glosario."
+    },
+    {
+      "at": 66.8,
+      "type": "caption",
+      "spk": "Teacher",
+      "en": "Job C: translation, but only into languages someone in this room actually asked for.",
+      "hi": "जॉब सी: अनुवाद, लेकिन सिर्फ़ उन भाषाओं में जो इस कमरे में किसी ने माँगी हैं।",
+      "ta": "பணி C: மொழிபெயர்ப்பு — இந்த அறையில் யாராவது கேட்ட மொழிகளுக்கு மட்டும்.",
+      "bn": "জব সি: অনুবাদ, কিন্তু শুধু যে ভাষা এই ঘরে কেউ চেয়েছে।",
+      "es": "Trabajo C: traducción, solo a los idiomas que alguien en esta sala pidió."
+    },
+    {
+      "at": 71.5,
+      "type": "glossary",
+      "term": "ASR",
+      "def": "Automatic Speech Recognition — software that turns spoken audio into written text. In Lekha this runs on the edge device, not in the cloud."
+    },
+    {
+      "at": 72.0,
+      "type": "note",
+      "title": "The three parallel jobs",
+      "bullets": [
+        "Job A — Live captions: each finished phrase is a 30–80 byte JSON packet.",
+        "Job B — Rolling notes: every 60–90s, a small local LLM writes bullets + simplified language + glossary terms.",
+        "Job C — Translation: subscribe-based. Translate only languages at least one student requested."
+      ],
+      "simple": "Three jobs: fast subtitles, slow notes, and translation only for languages people in the room actually use."
+    },
+    {
+      "at": 74.0,
+      "type": "caption",
+      "spk": "Teacher",
+      "en": "We do not waste the Raspberry Pi translating into a language nobody is reading.",
+      "hi": "हम रास्पबेरी पाई को ऐसी भाषा में अनुवाद करवाकर बर्बाद नहीं करते जो कोई पढ़ नहीं रहा।",
+      "ta": "யாரும் படிக்காத மொழிக்கு மொழிபெயர்த்து ராஸ்பெர்ரி பையை வீணாக்க மாட்டோம்.",
+      "bn": "কেউ পড়ছে না এমন ভাষায় অনুবাদ করে রাস্পবেরি পাই নষ্ট করব না।",
+      "es": "No gastamos la Raspberry Pi traduciendo a un idioma que nadie está leyendo."
+    },
+    {
+      "at": 79.0,
+      "type": "caption",
+      "spk": "Teacher",
+      "en": "If the Wi-Fi hiccups, your phone already has the last captions and notes cached. You do not go blank.",
+      "hi": "वाई-फ़ाई अटके तो भी आपके फ़ोन में पिछले कैप्शन और नोट्स कैश में हैं। स्क्रीन खाली नहीं होती।",
+      "ta": "வைஃபை தத்தும்போதும் கடைசி தலைப்புகள் போனில் இருக்கும். திரை காலியாகாது.",
+      "bn": "ওয়াই-ফাই থেমে গেলেও শেষ ক্যাপশন ও নোট ফোনে ক্যাশ থাকে। স্ক্রিন খালি হয় না।",
+      "es": "Si el Wi-Fi falla, el teléfono ya tiene los últimos subtítulos y apuntes. No se queda en blanco."
+    },
+    {
+      "at": 84.2,
+      "type": "glossary",
+      "term": "QoS",
+      "def": "Quality of Service — a way to mark some packets as more important. Hearing-impaired students get caption packets at higher priority than notes or translation."
+    },
+    {
+      "at": 84.8,
+      "type": "caption",
+      "spk": "Teacher",
+      "en": "For students who cannot hear the room, captions are not a nicety. They are the lecture.",
+      "hi": "जो छात्र कमरा सुन नहीं सकते, उनके लिए कैप्शन सुविधा नहीं हैं। वे ही लेक्चर हैं।",
+      "ta": "அறையை கேட்க முடியாத மாணவர்க்கு தலைப்புகள் சௌகரியம் அல்ல. அதுவே பாடம்.",
+      "bn": "যারা ঘর শুনতে পান না, তাদের কাছে ক্যাপশন সুবিধা নয়। এটাই লেকচার।",
+      "es": "Para quien no puede oír el aula, los subtítulos no son un extra. Son la clase."
+    },
+    {
+      "at": 90.0,
+      "type": "caption",
+      "spk": "Teacher",
+      "en": "So we give those devices priority on the wire, bigger type, and a tap when something non-speech happens — a bell, a laugh, a name.",
+      "hi": "इसलिए उन डिवाइस को तार पर प्राथमिकता, बड़ा अक्षर, और गैर-वाक् घटना — घंटी, हँसी, नाम — पर कंपन देते हैं।",
+      "ta": "அந்த சாதனங்களுக்கு முன்னுரிமை, பெரிய எழுத்து, மணி/சிரிப்பு/பெயர் வந்தால் அதிர்வு.",
+      "bn": "তাই সেই ডিভাইসে অগ্রাধিকার, বড় হরফ, আর ঘণ্টা-হাসি-নামে ভাইব্রেশন।",
+      "es": "Por eso esas pantallas tienen prioridad, letra grande, y una vibración si suena un timbre, una risa, un nombre."
+    },
+    {
+      "at": 96.0,
+      "type": "alert",
+      "kind": "bell",
+      "label": "Period bell",
+      "en": "The period bell rings."
+    },
+    {
+      "at": 97.4,
+      "type": "caption",
+      "spk": "Teacher",
+      "en": "That bell is your reminder: convert at the source, send only text, degrade to cache — never to silence.",
+      "hi": "वह घंटी याद दिलाती है: स्रोत पर बदलो, सिर्फ़ टेक्स्ट भेजो, कैश पर गिरो — चुप्पी पर नहीं।",
+      "ta": "அந்த மணி நினைவூட்டல்: மூலத்திலேயே மாற்று, உரை மட்டும் அனுப்பு, வெற்றிடத்திற்கு அல்ல.",
+      "bn": "সেই ঘণ্টা মনে করায়: উৎসেই বদলাও, শুধু টেক্সট পাঠাও, ক্যাশে নামাও — নীরবতায় নয়।",
+      "es": "Ese timbre recuerda: convierte en el origen, envía solo texto, degrada a caché — nunca a silencio."
+    },
+    {
+      "at": 102.5,
+      "type": "note",
+      "title": "What to remember for the exam",
+      "bullets": [
+        "ASR + translation + notes run on the classroom edge device; student phones are thin clients.",
+        "Wire protocol is text (JSON over WebSocket/MQTT). Typical caption packet: 30–80 bytes.",
+        "Offline-first PWA + IndexedDB means a dropped packet does not erase the lecture.",
+        "Accessibility is first-class: priority captions, speaker tags, haptic alerts, exportable notes."
+      ],
+      "simple": "Exam line: do the heavy AI in the classroom, send tiny text to phones, keep a copy on the phone, and never leave deaf students behind."
+    },
+    {
+      "at": 104.0,
+      "type": "caption",
+      "spk": "Teacher",
+      "en": "Notes are already on your phone. Class dismissed.",
+      "hi": "नोट्स पहले से आपके फ़ोन पर हैं। कक्षा समाप्त।",
+      "ta": "குறிப்புகள் ஏற்கெனவே உங்கள் போனில் உள்ளன. வகுப்பு முடிந்தது.",
+      "bn": "নোট ইতিমধ্যে আপনার ফোনে আছে। ক্লাস ছুটি।",
+      "es": "Los apuntes ya están en su teléfono. Se termina la clase."
+    }
+  ]
+}

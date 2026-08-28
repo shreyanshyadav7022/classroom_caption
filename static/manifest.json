@@ -1,0 +1,9 @@
+{
+  "name": "Lekha — classroom captions",
+  "short_name": "Lekha",
+  "start_url": "/student",
+  "display": "standalone",
+  "background_color": "#0b0d12",
+  "theme_color": "#0b0d12",
+  "description": "Low-bandwidth live lecture captions, notes, and translation."
+}
